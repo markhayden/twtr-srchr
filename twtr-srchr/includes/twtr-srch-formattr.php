@@ -14,13 +14,28 @@ class twtrSrchFormattr {
 	}
 
 	public function twtr_srch_format( $atts, $content="", $obj ) {
+
+		// set the default date format
+		if ( isset( $atts['date'] )) {
+			$date_format = $atts['date'];
+		} else {
+			$date_format = "M j";
+		}
 		// create array of potential information
 		$replacables = array( 'twtr_id', 'twtr_handle', 'twtr_name', 'twtr_content', 'twtr_posted', 'twtr_url', 'logged' );
 
 		// replace template with values
 		foreach ( $replacables as $value ) {
 			$query = "{{".$value."}}";
-			$content = str_replace( $query, $obj->{$value}, $content );
+			$drop = $obj->{$value};
+
+			// check if the value is a date. if so, format.
+			if ( $value == 'twtr_posted' || $value == 'logged' ) {
+				$phpdate = strtotime( $drop );
+				$drop = date( $date_format, $phpdate );
+			}
+
+			$content = str_replace( $query, $drop, $content );
 		}
 
 		return $content;

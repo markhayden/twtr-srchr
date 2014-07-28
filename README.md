@@ -39,14 +39,23 @@ This is a simple wordpress plugin created to perform, and cache, a search query 
 
 Print out the body of all tweets associated with posts query from wordpress.
 ```
-[twtr_srch posts=5]
+[twtr_srch]
+	{{twtr_content}}
+[/twtr_srch]
+
+[twtr_srch limit=5]
+	{{twtr_content}}
+[/twtr_srch]
+
+[twtr_srch limit=5 date="Y-M-D"]
 	{{twtr_content}}
 [/twtr_srch]
 ```
 
 Print out the body of all tweets associated with posts query from php.
 ```
-<?php echo do_shortcode('[twtr_srch posts=5]{{twtr_content}}[/twtr_srch]'); ?>
+<?php echo do_shortcode('[twtr_srch limit=5]{{twtr_content}}[/twtr_srch]'); ?>
+<?php echo do_shortcode('[twtr_srch date="Y-M-D"]{{twtr_content}}[/twtr_srch]'); ?>
 ```
 
 ###Changelog
