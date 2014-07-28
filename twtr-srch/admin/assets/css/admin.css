@@ -1,0 +1,39 @@
+.twtr-p, .twtr-h2, .twtr-h3 {
+	margin: 0;
+	padding: 0;
+}
+
+.twtr-h3 {
+	margin-top: 30px;
+	margin-bottom: 15px;
+}
+
+.twtr-right {
+	text-align: right;
+}
+
+.red {
+	color: red;
+}
+
+.button-red {
+	background: #F00 !important;
+	border-color: #c10000 !important;
+	color: white !important;
+	-webkit-box-shadow: inset 0 1px 0 #c10000, 0 1px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: inset 0 1px 0 #ecc88a, 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.button-red:hover {
+	opacity: .5;
+}
+
+#twtrTestOutpt {
+	padding: 20px;
+	background: #e5e1e1;
+	display: none;
+}
+
+.twtr-table tr td input{
+	width: 500px;
+}
