@@ -14,7 +14,7 @@
  * Plugin Name:       Twtr Srchr
  * Plugin URI:        https://github.com/markhayden/twtr-srchr
  * Description:       Simple plugin for pulling in twitter queries unique to each post.
- * Version:           0.0.1
+ * Version:           0.0.02
  * Author:            Mark Hayden
  * Author URI:        https://github.com/markhayden/
  * Text Domain:       twtr_srchr
