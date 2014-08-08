@@ -7,7 +7,7 @@ Stable tag: 0.0.02
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Simple plugin for pulling in and displaying twitter queries unique to each post. Relys on cron job setup, instructions included.
+Simple plugin for pulling in and displaying twitter queries unique to each post.
 
 
 ###Description
