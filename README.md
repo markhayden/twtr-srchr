@@ -7,7 +7,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Simple plugin for pulling in and displaying twitter queries unique to each post. Relys on cron job setup, instructions included.
+Simple plugin for pulling in and displaying twitter queries unique to each post.
 
 
 ###Description
@@ -59,5 +59,7 @@ Print out the body of all tweets associated with posts query from php.
 ```
 
 ###Changelog
-0.0.1
+0.0.02
+> Removed cron dependency. Added in additional settings and added in html links to tweets.
+0.0.01
 > Initial build and launch.
