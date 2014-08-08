@@ -3,7 +3,7 @@ Contributors: Mark Hayden
 Tags: wordpress, twitter, search, plugin  
 Requires at least: 3.5.1  
 Tested up to: 3.6  
-Stable tag: 1.0.0  
+Stable tag: 0.0.02  
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,5 +59,10 @@ Print out the body of all tweets associated with posts query from php.
 ```
 
 ###Changelog
-0.0.1
+0.0.02
+> Removed cron job dependency.
+  Updated testing.
+  Added setting to manage twitter query frequency.
+
+0.0.01
 > Initial build and launch.

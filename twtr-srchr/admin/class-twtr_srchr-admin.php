@@ -24,7 +24,7 @@ class Twtr_Srchr_Admin {
 	/**
 	 * Instance of this class.
 	 *
-	 * @since    1.0.0
+	 * @since    0.0.01
 	 *
 	 * @var      object
 	 */
@@ -33,7 +33,7 @@ class Twtr_Srchr_Admin {
 	/**
 	 * Slug of the plugin screen.
 	 *
-	 * @since    1.0.0
+	 * @since    0.0.01
 	 *
 	 * @var      string
 	 */
@@ -43,7 +43,7 @@ class Twtr_Srchr_Admin {
 	 * Initialize the plugin by loading admin scripts & styles and adding a
 	 * settings page and menu.
 	 *
-	 * @since     1.0.0
+	 * @since     0.0.01
 	 */
 	private function __construct() {
 
@@ -96,7 +96,7 @@ class Twtr_Srchr_Admin {
 	/**
 	 * Return an instance of this class.
 	 *
-	 * @since     1.0.0
+	 * @since     0.0.01
 	 *
 	 * @return    object    A single instance of this class.
 	 */
@@ -122,7 +122,7 @@ class Twtr_Srchr_Admin {
 	/**
 	 * Register and enqueue admin-specific style sheet.
 	 *
-	 * @since     1.0.0
+	 * @since     0.0.01
 	 *
 	 * @return    null    Return early if no settings page is registered.
 	 */
@@ -142,7 +142,7 @@ class Twtr_Srchr_Admin {
 	/**
 	 * Register and enqueue admin-specific JavaScript.
 	 *
-	 * @since     1.0.0
+	 * @since     0.0.01
 	 *
 	 * @return    null    Return early if no settings page is registered.
 	 */
@@ -162,7 +162,7 @@ class Twtr_Srchr_Admin {
 	/**
 	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
 	 *
-	 * @since    1.0.0
+	 * @since    0.0.01
 	 */
 	public function add_plugin_admin_menu() {
 
@@ -190,7 +190,7 @@ class Twtr_Srchr_Admin {
 	/**
 	 * Render the settings page for this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    0.0.01
 	 */
 	public function display_plugin_admin_page() {
 
@@ -217,7 +217,7 @@ class Twtr_Srchr_Admin {
 	/**
 	 * Add settings action link to the plugins page.
 	 *
-	 * @since    1.0.0
+	 * @since    0.0.01
 	 */
 	public function add_action_links( $links ) {
 
@@ -237,7 +237,7 @@ class Twtr_Srchr_Admin {
 	 *           Actions:    http://codex.wordpress.org/Plugin_API#Actions
 	 *           Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
 	 *
-	 * @since    1.0.0
+	 * @since    0.0.01
 	 */
 	public function action_method_name() {
 		// @TODO: Define your action hook callback here
@@ -250,7 +250,7 @@ class Twtr_Srchr_Admin {
 	 *           Filters: http://codex.wordpress.org/Plugin_API#Filters
 	 *           Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
 	 *
-	 * @since    1.0.0
+	 * @since    0.0.01
 	 */
 	public function filter_method_name() {
 		// @TODO: Define your filter hook callback here
