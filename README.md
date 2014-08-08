@@ -61,5 +61,6 @@ Print out the body of all tweets associated with posts query from php.
 ###Changelog
 0.0.02
 > Removed cron dependency. Added in additional settings and added in html links to tweets.
+
 0.0.01
 > Initial build and launch.
