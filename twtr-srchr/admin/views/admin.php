@@ -17,14 +17,16 @@
 	if ( $_POST ) {
 		$api_key = $_POST['api_key'];
 		$api_secret = $_POST['api_secret'];
-		$number_of_tweets_to_save = $_POST['number_of_tweets_to_save'];
+		$number_of_tweets_to_save = $_POST['twtr_number_of_tweets_to_save'];
 		$post_types = $_POST['post_types'];
+		$query_buffer = $_POST['query_buffer'];
 
-		if ( $api_key !== '' && $api_secret !== '' && $number_of_tweets_to_save > 0 && $post_types !== '' ){
+		if ( $api_key !== '' && $api_secret !== '' && $number_of_tweets_to_save !== '' && $post_types !== '' && $query_buffer !== '' ){
 			update_option( "twtr_api_key", $api_key );
 			update_option( "twtr_api_secret", $api_secret );
 			update_option( "twtr_number_of_tweets_to_save", $number_of_tweets_to_save );
 			update_option( "twtr_post_types", $post_types );
+			update_option( "twtr_query_buffer", $query_buffer );
 			$saved = true;
 		} else {
 			$saved = false;
@@ -34,14 +36,14 @@
 <div class="wrap">
 
 	<? if ( $saved === true ) { ?>
-	<div>
-		Settings Saved
+	<div class="the-day-is-mine">
+		Well would you look at that. Everything saved successfully!
 	</div>
 	<? } ?>
 
 	<? if ( $saved === false ) { ?>
-	<div>
-		Settings Borked
+	<div class="you-borked-the-internet">
+		Well crap. Something borked. Try again maybe?
 	</div>
 	<? } ?>
 
@@ -74,38 +76,24 @@
 
 		<h3 class="twtr-h3">Automated Search Settings</h3>
 		<p class="twtr-p">For each query performed we can control how many tweets are returned. The smaller the number the quicker queries / processing is performed. Ideally this will be the amount of tweets you would like to display.</p>
+
+		<br/>
 		<table>
 			<tr>
-				<td class="twtr-right"><label for="key">How many tweets should we save?: </label></td>
-				<td>
-					<select name="number_of_tweets_to_save" id="">
-						<option value="<?php echo get_option( 'twtr_number_of_tweets_to_save', 5 ); ?>"><?php echo get_option( 'twtr_number_of_tweets_to_save', 5 ); ?></option>
-						<option value="5">-------</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-						<option value="11">11</option>
-						<option value="12">12</option>
-						<option value="13">13</option>
-						<option value="14">14</option>
-						<option value="15">15</option>
-					</select>
-				</td>
+				<td class="twtr-right">How many tweets should we save for each query? </td>
+				<td><input name="twtr_number_of_tweets_to_save" type="text" onkeyup="this.value=this.value.replace(/[^\d]/,'')" value="<?php echo get_option( 'twtr_number_of_tweets_to_save' ); ?>"></td>
 			</tr>
 			<tr>
-				<td class="twtr-right"><label for="key">Post types (separate with comma, no spaces): </label></td>
+				<td class="twtr-right">Post types (separate with comma, no spaces): </td>
 				<td><input name="post_types" type="text" value="<?php echo get_option( 'twtr_post_types' ); ?>"> <span>default: post,page</span></td>
+			</tr>
+			<tr>
+				<td class="twtr-right">Pull in new tweets every </td>
+				<td><input name="query_buffer" type="text" onkeyup="this.value=this.value.replace(/[^\d]/,'')" value="<?php echo get_option( 'twtr_query_buffer' ); ?>"> <span> minutes</span></td>
 			</tr>
 		</table>
 
-		<h3 class="twtr-h3">Setting Up An Automated Job (cron)</h3>
+		<!-- <h3 class="twtr-h3">Setting Up An Automated Job (cron)</h3>
 		<p class="twtr-p">
 			Twitters built in automation functionality is slightly flawed for high traffic sites. As a result, the best
 			way to perform the necessary actions after any given period of time is to create a "cron" job from your hosting
@@ -121,7 +109,7 @@
 				<li>In the Command field, enter the following command: <b class="red">php <? echo $_SERVER['DOCUMENT_ROOT'].'/wp-content/plugins/twtr-aggregatr/fetch.php'; ?>>/dev/null 2>&1</b></li>
 				<li>Click Add New Cron Job.</li>
 			</ol>
-		</p>
+		</p> -->
 
 		<?php submit_button(); ?>
 

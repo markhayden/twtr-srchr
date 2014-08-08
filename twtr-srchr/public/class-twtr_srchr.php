@@ -123,10 +123,11 @@ class Twtr_Srchr {
 		global $wpdb;
 		global $twtr_db_version;
 
-		$table_name = $wpdb->prefix . "twtr_srchr";
+		$twtr_srchr_table_name = $wpdb->prefix . "twtr_srchr";
+		$twtr_srchr_log_table_name = $wpdb->prefix . "twtr_srchr_log";
 		$options_table_name = $wpdb->prefix . "options";
 
-		$sql = "CREATE TABLE `".$table_name."` (
+		$sql = "CREATE TABLE `".$twtr_srchr_table_name."` (
 			`id` mediumint(50) NOT NULL AUTO_INCREMENT,
 			`twtr_id` bigint(100) NOT NULL,
 			`twtr_query` varchar(150) NOT NULL,
@@ -141,6 +142,14 @@ class Twtr_Srchr {
 			PRIMARY KEY `id` (`id`)
 		);";
 
+		$sql .= "CREATE TABLE `".$twtr_srchr_log_table_name."` (
+			`id` mediumint(50) NOT NULL AUTO_INCREMENT,
+			`twtr_query` varchar(150) NOT NULL,
+			`logged` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+			UNIQUE KEY `id` (`id`),
+			PRIMARY KEY `id` (`id`)
+		);";
+
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		dbDelta( $sql );
 
@@ -149,6 +158,7 @@ class Twtr_Srchr {
 		add_option( "twtr_api_secret", null );
 		add_option( "twtr_number_of_tweets_to_save", 10 );
 		add_option( "twtr_post_types", "post" );
+		add_option( "twtr_query_buffer", 15 );
 
 		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
 

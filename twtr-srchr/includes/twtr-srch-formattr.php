@@ -57,7 +57,8 @@ class twtrSrchFormattr {
 		$table_name = reset($get_table_name{0});
 
 		// get the existing tweets
-		$twtr_query = get_post_meta( get_the_ID(), 'twtr_search_query')[0];
+		$twtr_query_raw = get_post_meta( get_the_ID(), 'twtr_search_query');
+		$twtr_query = $twtr_query_raw[0];
 
 		// check if string is a user. if so format it for proper searching.
 		if ( $twtr_query{0} === "@" ) {

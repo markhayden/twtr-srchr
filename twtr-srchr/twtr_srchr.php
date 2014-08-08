@@ -48,7 +48,25 @@ add_action( 'plugins_loaded', array( 'Twtr_Srchr', 'get_instance' ) );
 // Load the class files to manage custom twitter handle field on posts.
 include('includes/twtr-srch-formattr.php');
 
+function siteURL(){
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+    $domainName = $_SERVER['HTTP_HOST'].'/';
+    return $protocol.$domainName;
+}
+
 function format_shortcode( $atts, $content="" ) {
+	$twtr_query_raw = get_post_meta( get_the_ID(), 'twtr_search_query');
+	$twtr_site_url = siteURL();
+
+	// determine if the tweets need to be pulled in
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+	    CURLOPT_RETURNTRANSFER => 1,
+	    CURLOPT_URL => $twtr_site_url . 'wp-content/plugins/twtr-srchr/public/includes/twitter-search-endpoint.php?q=' . $twtr_query_raw[0],
+	));
+	$resp = curl_exec($curl);
+	curl_close($curl);
+
 	// initiate class object
 	$twtr_class = new twtrSrchFormattr();
 
